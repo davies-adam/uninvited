@@ -16,7 +16,6 @@ hallway:
   knife:
     - header: A Kitchen Knife
       content: A sharp kitchen knife that should be capable of fending off attackers
-  south: center
   east: study
 study:
   initial:
