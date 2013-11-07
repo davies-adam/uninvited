@@ -1,0 +1,53 @@
+hallway:
+  initial:
+    if: 
+      knock_heard:
+        - header: hallway
+          image: hallway.png
+          caption: Living Area
+          subcaption: An Old House
+          content: "With unceasable vehemence another series of knocks seems to be beckoning you. It appears as if the noises are coming from above, just a step in front of you."
+      else:
+        - header: hallway
+          image: hallway.png
+          caption: Living Area
+          subcaption: An Old House
+          content: "You're in the midst of a hallway. A step further north you see some crates stacked up, and a few things littering the floor. You think the sound you just heard came from the south."
+  knife:
+    - header: A Kitchen Knife
+      content: A sharp kitchen knife that should be capable of fending off attackers
+  south: center
+  east: study
+study:
+  initial:
+    - header: "What...?"
+      music: ucd.mp3
+      content: For a moment you thought that you've heard something. Something strange, out of the ordinary...
+      image: study.png
+      caption: AN OLD HOUSE
+      subcaption: Voldar, Capital of Nermeran
+      audio: wind_swell_short.mp3
+    - content: "There it is again... That sound... Irritated you look around and find yourself at a desk, an open book lying in front of you. What was that noise you just heard? You're not sure. But it was loud enough that it made you startle."
+      sound: dark_vibe.mp3
+    - content: You conclude that you must have dozed off while reading. Surely it is past midnight already as it's pretty dark out there, only the moonlight illuminates the room. The candle next to the book is already halfway burned down. You must have slept a while. You look around...
+    - content: And then there it is again... Another eerie, creepy sound... Much closer now...
+      audio: door_ghost.mp3
+    - content: You're at a desk in a study. A candleholder, a bottle of red <b>wine</b> and a glass stand next to the open <b>book</b> in front of you. From the east some moonlight shines through the <b>window</b>.
+  window:
+    - header: Look Through Window
+      content: The moonlight bathes the streets of Voldar in a mysterious, almost magical light.
+      image: window.png
+      caption: Window
+  book:
+    - header: Examine Book
+      content: The book bears the title "Lurking in the Shadows" and deals with all kinds of myths of the uneasy kind.
+      caption: Book on Myths
+      image: book.png
+    - header: You read a few lines
+      content: And so it is said that a creature from the Lands of Dreams visits those that have fulfilled their existence's purpose in this world. The Kiivosh takes away the spark of life from the dead with all its memories, intentions, hopes and aspirations. It prepares the deceased for final judgement in the world that lies beyond.
+    - content: In the hour of death the Veil of the Kiivosh engulfs the fallen, guarding the deceased until the soul is taken by the creature to its final destiny.
+    - content: Some say that once seperated from the body the spirit of the dead might still be experienced in this world until the deeds are judged. Be it as a draft of wind, a whispering out of nowhere or even a serious haunt that offers the dead an opportunity to avenge itself. On the other hand, such things might just be stories of an imaginative mind...
+    - content: Spooky stuff..." you think by yourself.
+    - content: At the moment you look up you suddenly get a strange sensation...
+      audio: swell_eerie.mp3
+  west: hallway

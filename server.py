@@ -12,12 +12,12 @@ def main():
 
 @app.route("/rooms")
 def hello():
-    data = yaml.load(open("/home/action/module/content.yaml").read())
+    data = yaml.load(open("./module/content.yaml").read())
     return json.dumps(data)
 
 @app.route("/<path:path>")
 def image(path):
     if(path.find(".mp3") != -1):
-        return send_from_directory("/home/action/module/audio/", path)
+        return send_from_directory("./module/audio", path)
     elif(path.find(".png") != -1):
-        return send_from_directory("/home/action/module/images/", path)
+        return send_from_directory("./module/images/", path)
