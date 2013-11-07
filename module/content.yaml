@@ -50,3 +50,21 @@ study:
     - content: At the moment you look up you suddenly get a strange sensation...
       audio: swell_eerie.mp3
   west: hallway
+  south: center
+center:
+  initial:
+    if:
+      knock_heard:
+        - header: Hallway
+          content: The hallway continues north and south, doors lead to the east and west as well. Both doors are open.
+        - content: Even in the dim light you can spot something unusual at the floor below: <b>Stains</b> are all over the place!
+        - content: As you go north your heartbeat stops again when you hear rhythmic knocks coming from somewhere further down the hallway.
+          audio: knock.mp3
+    else:
+      - header: Hallway
+        content: The hallway continues north and south, doors lead to the east and west as well. Both doors are open.
+      - content: Even in the dim light you can spot something unusual at the floor below: <b>Stains</b> are all over the place!
+  stains:
+    - header: Stains
+      content: You bend down to investigate the stains further... It is some kind of liquid. Wait... it's... actually blood! The blood stains are smeared all over the place and seem to lead to the west.
+    
