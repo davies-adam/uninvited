@@ -17,6 +17,7 @@ hallway:
     - header: A Kitchen Knife
       content: A sharp kitchen knife that should be capable of fending off attackers
   east: study
+  south: center
 study:
   initial:
     - header: "What...?"
@@ -50,7 +51,6 @@ study:
     - content: At the moment you look up you suddenly get a strange sensation...
       audio: swell_eerie.mp3
   west: hallway
-  south: center
 center:
   initial:
     if:
