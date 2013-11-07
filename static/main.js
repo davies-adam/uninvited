@@ -84,4 +84,4 @@ playMusic = function (path) {
 }
 
 window["knock_heard"] = true;
-enterRoom("hallway");
+enterRoom("study");
