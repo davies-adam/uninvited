@@ -47,6 +47,7 @@ playScene = function () {
     window.scenes = scenes.slice(1);
     if (window.scenes.length == 0) {
         $("select").removeAttr("disabled");
+        $("select option[value='continue']").remove();
     }
 };
 
@@ -64,6 +65,8 @@ startScene = function (scenes) {
         window.scenes = scenes;
     }
     $("select").attr("disabled", "disabled");
+    $("select").append("<option value=\"continue\">Continue...</option>");
+    $("select").val("continue");
     $("ul#messages").empty();
     playScene();
 }
