@@ -1,0 +1,24 @@
+ul {
+    list-style: none;
+}
+body {
+    font-family: 'Stoke', serif;
+    background-color: black;
+    color: white;
+}
+img { 
+  max-width: 90%;
+  max-height: 90%;
+}
+li {
+    padding-top: 1.5em;
+}
+#caption {
+    font-size: 1.3em;
+}
+#options {
+    width: 80%;
+}
+#okay {
+    width: fill;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Uninvited</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Stoke' rel='stylesheet' type='text/css'>
+    <link href='{{ url_for('static', filename='main.css') }}' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <audio id="audio"></audio>
+    <audio id="music"></audio>
+    <div class="col-md-7">
+        <div class="row">
+            <ul id="messages" />
+        </div>
+        <div class="row">
+            <select id="options"></select>
+            <button id="okay">OK</button>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="row">
+            <img id="image" />
+        </div>
+        <div class="row">
+            <p id="caption" />
+            <p id="subcaption" />
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
