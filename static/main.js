@@ -3,6 +3,7 @@ $("#okay").click(function () {
     if (scenes.length > 0) {
         playScene();
     } else if ($.inArray(command, ["north", "east", "south", "west"]) > 0) {
+        console.log(command);
         enterRoom(croom[command]);
     } else {
         startScene(croom[command]);
@@ -15,19 +16,38 @@ $("#audio").bind("ended", function () {
 });
 
 enterRoom = function (room) {
-    $.getJSON("/rooms",
-        function (a) {
-            window.croom = a[room];
-            $("select").empty();
-            var items = [];
-            $.each(Object.keys(croom), function (i, item) {
-                if (item !== "initial") {
-                    items.push('<option value=\"' + item + "\">" + item + '</option>');
-                }
+    run = function(data) {
+        window.croom = window.data[room];
+        $("select").empty();
+        var items = [];
+        $.each(Object.keys(croom), function (i, item) {
+            if (item !== "initial") {
+                items.push('<option value=\"' + item + "\">" + item + '</option>');
+            }
+        });
+        $("select").append(items.join(''));
+        startScene(croom["initial"]);
+    }
+    if (window.croom == undefined) {
+        $.getJSON(("/rooms"),
+            function (a) {
+                window.data = a;
+                run(window.data[room]);
             });
-            $("select").append(items.join(''));
-            startScene(croom["initial"]);
-        })
+    }
+    else {
+        run(window.data[room]);
+    }
+    window.croom = window.data[room];
+    $("select").empty();
+    var items = [];
+    $.each(Object.keys(croom), function (i, item) {
+        if (item !== "initial") {
+            items.push('<option value=\"' + item + "\">" + item + '</option>');
+        }
+    });
+    $("select").append(items.join(''));
+    startScene(croom["initial"]);
 };
 playScene = function () {
     var scene = scenes[0];
