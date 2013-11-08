@@ -70,3 +70,35 @@ center:
       image: center.jpg
       content: You bend down to investigate the stains further... It is some kind of liquid. Wait... it's... actually blood! The blood stains are smeared all over the place and seem to lead to the west.
   north: hallway
+  east: library
+library:
+  initial:
+    - header: Library
+      content: This part of the house serves as a little library, containing the three volumes of the very first edition of the Santharian <b>Compendium</b>. Quite valuable.
+      image: library.jpg
+    - content: Through a <b>window</b> above the desk light shines on a <b>sheet</b> lying on the chair
+  compendium:
+    - header: Examine the Compendium
+      content: "A book that shouldn't be missing in any household!"
+  window: 
+    - header: Look through Window
+      content: You look out of the window. The gruesome sight of the gallows that served their purpose not too long ago greets you.
+      audio: birds_raven.mp3
+      image: gallow1.jpg
+    - content: Fortunately the city watch has taken down the body already.
+      image: gallow2.jpg
+      audio: birds_raven2.mp3
+  sheet:
+    - header: Sheet of Music
+      content: It contains the lyrics of a rather famous song Judith of Bardavos has composed.
+    - header: Read Sheet
+      content: The lyrics of a song called "Sailing to Zandiria" are written on this sheet. You must have been researching that one before you fell asleep.
+    - content: While ostensibly about one of the treacherously lovely islands in the Scattersand Shoal archipelago, "Zandiria", also alludes to the journey we all must take at the end of our lives.
+    - content: |
+        <i>Sailing to Zandiria
+        Memory hauls in its line
+        Shoals hold no danger or fear 
+        When nothing lingers to bind 
+        Bring me here, nearer 
+        Nearer to Zandiria</i> 
+    - content: Alas, somehow you fail to remember the melody.
