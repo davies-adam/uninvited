@@ -3,13 +3,13 @@ hallway:
     if: 
       knock_heard:
         - header: hallway
-          image: hallway.png
+          image: hallway.jpg
           caption: Living Area
           subcaption: An Old House
           content: "With unceasable vehemence another series of knocks seems to be beckoning you. It appears as if the noises are coming from above, just a step in front of you."
       else:
         - header: hallway
-          image: hallway.png
+          image: hallway.jpg
           caption: Living Area
           subcaption: An Old House
           content: "You're in the midst of a hallway. A step further north you see some crates stacked up, and a few things littering the floor. You think the sound you just heard came from the south."
@@ -23,7 +23,7 @@ study:
     - header: "What...?"
       music: ucd.mp3
       content: For a moment you thought that you've heard something. Something strange, out of the ordinary...
-      image: study.png
+      image: study.jpg
       caption: AN OLD HOUSE
       subcaption: Voldar, Capital of Nermeran
       audio: wind_swell_short.mp3
@@ -36,13 +36,13 @@ study:
   window:
     - header: Look Through Window
       content: The moonlight bathes the streets of Voldar in a mysterious, almost magical light.
-      image: window.png
+      image: window.jpg
       caption: Window
   book:
     - header: Examine Book
       content: The book bears the title "Lurking in the Shadows" and deals with all kinds of myths of the uneasy kind.
       caption: Book on Myths
-      image: book.png
+      image: book.jpg
     - header: You read a few lines
       content: And so it is said that a creature from the Lands of Dreams visits those that have fulfilled their existence's purpose in this world. The Kiivosh takes away the spark of life from the dead with all its memories, intentions, hopes and aspirations. It prepares the deceased for final judgement in the world that lies beyond.
     - content: In the hour of death the Veil of the Kiivosh engulfs the fallen, guarding the deceased until the soul is taken by the creature to its final destiny.
@@ -56,7 +56,7 @@ center:
     if:
       knock_heard:
         - header: Hallway
-          image: center.png
+          image: center.jpg
           content: The hallway continues north and south, doors lead to the east and west as well. Both doors are open.
         - content: "Even in the dim light you can spot something unusual at the floor below <b>Stains</b> are all over the place"
         - content: As you go north your heartbeat stops again when you hear rhythmic knocks coming from somewhere further down the hallway.
@@ -67,6 +67,6 @@ center:
       - content: "Even in the dim light you can spot something unusual at the floor below <b>Stains</b> are all over the place"
   stains:
     - header: Stains
-      image: center.png
+      image: center.jpg
       content: You bend down to investigate the stains further... It is some kind of liquid. Wait... it's... actually blood! The blood stains are smeared all over the place and seem to lead to the west.
   north: hallway

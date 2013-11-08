@@ -19,5 +19,5 @@ def hello():
 def image(path):
     if(path.find(".mp3") != -1):
         return send_from_directory("./module/audio", path)
-    elif(path.find(".png") != -1):
+    elif(path.find(".jpg") != -1):
         return send_from_directory("./module/images/", path)
