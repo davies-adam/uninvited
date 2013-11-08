@@ -101,4 +101,5 @@ library:
         When nothing lingers to bind 
         Bring me here, nearer 
         Nearer to Zandiria</i> 
-    - content: Alas, somehow you fail to remember the melody.
+    - content: Alas, somehow you fail to remember the melody
+  west: center    
