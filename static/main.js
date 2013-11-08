@@ -68,6 +68,7 @@ startScene = function (scenes) {
             }
         }
         if (window.croom == "undefined") {
+            console.log("hello");
             window.scenes = scenes["if"]["else"];
         }
     } else {
@@ -92,4 +93,5 @@ playMusic = function (path) {
     $("#music").get(0).play();
 }
 
+window.knock_heard = true;
 enterRoom("study");
