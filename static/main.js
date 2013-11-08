@@ -3,7 +3,6 @@ $("#okay").click(function () {
     if (scenes.length > 0) {
         playScene();
     } else if ($.inArray(command, ["north", "east", "south", "west"]) > 0) {
-        console.log(command);
         enterRoom(croom[command]);
     } else {
         startScene(croom[command]);
@@ -93,5 +92,4 @@ playMusic = function (path) {
     $("#music").get(0).play();
 }
 
-window["knock_heard"] = true;
 enterRoom("study");
