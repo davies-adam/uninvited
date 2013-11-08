@@ -67,4 +67,4 @@ center:
   stains:
     - header: Stains
       content: You bend down to investigate the stains further... It is some kind of liquid. Wait... it's... actually blood! The blood stains are smeared all over the place and seem to lead to the west.
-    
+  north: hallway
