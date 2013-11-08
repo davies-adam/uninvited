@@ -38,16 +38,6 @@ enterRoom = function (room) {
     else {
         run(window.data[room]);
     }
-    window.croom = window.data[room];
-    $("select").empty();
-    var items = [];
-    $.each(Object.keys(croom), function (i, item) {
-        if (item !== "initial") {
-            items.push('<option value=\"' + item + "\">" + item + '</option>');
-        }
-    });
-    $("select").append(items.join(''));
-    startScene(croom["initial"]);
 };
 playScene = function () {
     var scene = scenes[0];
