@@ -2,7 +2,8 @@ $("#okay").click(function () {
     var command = $("select").val();
     if (scenes.length > 0) {
         playScene();
-    } else if ($.inArray(command, ["north", "east", "south", "west"]) > 0) {
+    } else if ($.inArray(command, ["north", "east", "south", "west"]) > -1) {
+        console.log("yo");
         enterRoom(croom[command]);
     } else {
         startScene(croom[command]);
@@ -15,7 +16,7 @@ $("#audio").bind("ended", function () {
 });
 
 enterRoom = function (room) {
-    run = function(data) {
+    run = function (data) {
         window.croom = window.data[room];
         $("select").empty();
         var items = [];
@@ -33,8 +34,7 @@ enterRoom = function (room) {
                 window.data = a;
                 run(window.data[room]);
             });
-    }
-    else {
+    } else {
         run(window.data[room]);
     }
 };
@@ -64,14 +64,28 @@ startScene = function (scenes) {
     if ("if" in scenes) {
         for (i in scenes["if"]) {
             if (i !== "else" && window[i]) {
+                console.log("a");
                 window.scenes = scenes["if"][i];
             }
         }
-        if (window.croom == "undefined") {
-            console.log("hello");
-            window.scenes = scenes["if"]["else"];
+        try {
+            if (window.scenes == undefined) {
+                console.log("b");
+                window.scenes = scenes["else"];
+            } else {
+                if (window.scenes.length == 0) {
+                    console.log(scenes);
+                    window.scenes = scenes["else"];
+                }
+            }
+        } catch (err) {
+            if (window.scenes.length == 0) {
+                console.log("c");
+                window.scenes = scenes["else"];
+            }
         }
     } else {
+        console.log("d");
         window.scenes = scenes;
     }
     $("select").attr("disabled", "disabled");
@@ -93,5 +107,4 @@ playMusic = function (path) {
     $("#music").get(0).play();
 }
 
-window.knock_heard = true;
-enterRoom("study");
+enterRoom("center");
