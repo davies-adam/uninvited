@@ -1,4 +1,4 @@
-ul {
+  ul {
     list-style: none;
 }
 body {
@@ -7,18 +7,27 @@ body {
     color: white;
 }
 img { 
-  max-width: 90%;
+  max-width: 100%;
   max-height: 90%;
 }
 li {
     padding-top: 1.5em;
-}
-#caption {
-    font-size: 1.3em;
 }
 #options {
     width: 80%;
 }
 #okay {
     width: fill;
+}
+#caption, #subcaption {
+  margin-left: 1em;
+  padding-top: 0.25em;
+}
+@media (max-width: 720px) {
+    img {
+        max-width: 100%;
+    }
+    body {
+        font-size: 4em;
+    }
 }
