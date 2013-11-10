@@ -76,6 +76,7 @@ center:
       content: You bend down to investigate the stains further... It is some kind of liquid. Wait... it's... actually blood! The blood stains are smeared all over the place and seem to lead to the west.
   north: hallway
   east: library
+  south: dining_room
 library:
   initial:
     - header: Library
@@ -107,4 +108,39 @@ library:
         Bring me here, nearer 
         Nearer to Zandiria</i> 
     - content: Alas, somehow you fail to remember the melody
-  west: center    
+  west: center
+dining_room:
+  initial:
+    if:
+      fairy_found:
+        - image: dining_room.jpg
+          header: Dining Room
+          content: As you enter the dining room the whispers suddenly stop. Were the voices real or just in your head? You dread the idea of going back into the cellar.
+        - content: A candle still sits on the table here as if nothing had ever happened.  
+    else:
+      - image: dining_room.jpg
+        header: Dining Room
+        content: You're at the dining room, a single candle is burning at the table, next to a half finished <b>supper</b>.
+  supper:
+    - header: Examine Supper
+      content: Boarsteak with Sweetsauce... Doesn't look too bad actually. You wonder why you haven't finished it
+  south: fireplace
+fireplace:
+  initial:
+    - header: Cozy Room
+      content: You're at the fireplace. The flames are eating noisily on the few logs and spread warmth throughout the house. A rare, pricy <b>picture</b> from Nybelmarian lands hangs above the fire.
+      image: fireplace.png
+    - content: For a moment you think that you've got a glimpse of someone moving in that cushioned <b>chair</b> next to the fire...
+  chair:
+    - content: Slowly, carefully you sneak behind the chair...
+    - content: There you have it: Little shadows are dancing below the piece of furniture - something obviously occupies the space between fire and chair...
+    - content: You raise your hand to catch the person unaware...
+    - content: You jump at the chair. With a loud crash the poker rack that sits next to it goes down.
+      audio: metal_drop.mp3
+  picture:
+    - header: Painting
+      content: The picture shows the image of a bone tree, said to be an apparition of the Venlaken Enclave.
+      image: painting.jpg
+      audio: horror_effect1.mp3
+    - content: These trees usually appear suddenly over night and disappear just as sudden after some time. Their most common form is that of a tree made entirely out of human bones. Creepy....  
+      audio: campfire.mp3

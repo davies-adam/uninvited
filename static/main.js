@@ -107,4 +107,4 @@ playMusic = function (path) {
     $("#music").get(0).play();
 }
 
-enterRoom("center");
+enterRoom("study");
