@@ -43,6 +43,7 @@ study:
       content: The moonlight bathes the streets of Voldar in a mysterious, almost magical light.
       image: window.jpg
       caption: Window
+    - content: You turn back to your desk.
   book:
     - header: Examine Book
       content: The book bears the title "Lurking in the Shadows" and deals with all kinds of myths of the uneasy kind.
@@ -57,6 +58,7 @@ study:
       audio: swell_eerie.mp3
   west: 
     - location: hallway
+  default: study.jpg
 center:
   initial:
     if:
@@ -85,6 +87,7 @@ center:
     - location: library
   south:
     - location: dining_room
+  default: center.jpg
 library:
   initial:
     - header: Library
@@ -118,6 +121,7 @@ library:
     - content: Alas, somehow you fail to remember the melody
   west: 
     - location: center
+  default: library.jpg
 dining_room:
   initial:
     if:
@@ -139,6 +143,7 @@ dining_room:
     - location: fireplace    
   west: 
     - location: alcove
+  default: dining_room.jpg
 fireplace:
   initial:
     - header: Cozy Room
@@ -163,6 +168,7 @@ fireplace:
       audio: campfire.mp3
   north: 
     - location: dining_room
+  default: fireplace.jpg
 alcove:
   initial:
     if: 
@@ -182,7 +188,8 @@ alcove:
     - content: "Could it be that a thief has indeed made it in here? And if so: Where is he hiding now?"
     - content: Wait... Is there... A sound makes you turn around, facing south.
   south: 
-    - location: basement_entrance  
+    - location: basement_entrance
+  default: alcove.jpg
 basement_entrance:
   initial:
     if:
@@ -209,6 +216,7 @@ basement_entrance:
     - location: alcove
   down: 
     - location: basement
+  default: basement_entrance.jpg
 basement:
   initial:
     if:
@@ -228,6 +236,7 @@ basement:
     - location: logs
   up: 
     - location: basement_entrance
+  default: basement.jpg
 logs:
   initial:
     if:
@@ -249,6 +258,7 @@ logs:
     - location: basement
   north: 
     - location: wine
+  default: logs.jpg
 wine:
   initial:
     if:
@@ -280,6 +290,7 @@ wine:
       set: wine_broken
     - content: It takes a few moments before you realize that it was you. So there goes the bottle of winter ice along with your attempt to get the thief off guard.
     - location: crates
+  default: wine.jpg
 crates:    
   initial:
     - header: Storage Area
@@ -318,6 +329,7 @@ crates:
     - location: empty_storage
   west:
     - location: wine
+  default: wine.jpg
 empty_storage:
   initial:
     if:
@@ -334,6 +346,7 @@ empty_storage:
    - location: shadow
   south:
     - location: crates
+  default: storage.jpg
 shadow:
   initial:
     if:
@@ -359,6 +372,7 @@ shadow:
       content: Ha... A rustling... Clear as day... - Now where is that thief?
     - content: Unwavering you enter the last remaining room of the basement.
       location: last_basement
+  default: shadow.jpg
 last_basement:
   initial:
     if:
@@ -394,6 +408,7 @@ last_basement:
         set: fairy_found
   east:
     - location: shadow
+  default: last_basement.jpg
 attic_entrance:
   initial:
     if:
@@ -422,7 +437,7 @@ attic_entrance:
   up:
     if:
       trapdoor_open:
-        - header: Clim Up
+        - header: Climb Up
           image: trapdoor.jpg
           content: You wait a while, but there's no further sign  of someone being actually up there. Cautiously you climb the crates, always with an eye on the opening...
         - content: There you are...
@@ -431,6 +446,7 @@ attic_entrance:
     else:
       - header: Climb Up
         content: The trapdoor to the attic is obviously shut.
+  default: attic_entrance.jpg
 attic:
   initial:
     if:
@@ -466,6 +482,7 @@ attic:
     - location: attic_south
   north:
     - location: attic_center
+  default: attic1.jpg
 attic_south:
   initial:
     - header: Attic Backroom
@@ -489,6 +506,7 @@ attic_south:
        content: Are these the same voices that you heard in the cellar? Is it only one person? You think that you hear at least one woman whispering.
   north:
     - location: attic
+  image: attic_south.jpg
 attic_center:
   initial:
     - header: Central Attic Room
@@ -517,6 +535,7 @@ crystal:
     - location: attic_center
   east: 
     - location: nw_attic
+  default: crystal.jpg
 dummy:
   initial:
     - header: Aaaargh...?
@@ -527,6 +546,7 @@ dummy:
     - content: For one moment you felt really frightened. Luckily another false alarm..
   east:
     - location: attic_center
+  default: dummy.jpg
 attic_nw:
   initial:
     - header: Northwestern Room
@@ -542,6 +562,7 @@ attic_nw:
     - location: crystal
   south:
     - location: last_attic
+  default: attic_nw.jpg
 last_attic:
   initial:
     - header: Oh No...
@@ -554,3 +575,4 @@ last_attic:
       content: You take a look out of the hole and get a glance at the marketplace. The gallows are still conveying their message.
       audio: bells.mp3
       image: gallows.jpg
+  default: last_attic.jpg

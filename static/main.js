@@ -18,7 +18,7 @@ enterRoom = function (room) {
         $("select").empty();
         var items = [];
         $.each(Object.keys(croom), function (i, item) {
-            if (item !== "initial") {
+            if (item !== "initial" && item !== "default") {
                 items.push('<option value=\"' + item + "\">" + item + '</option>');
             }
         });
@@ -54,6 +54,7 @@ playScene = function () {
     if (window.scenes.length == 0) {
         $("select").removeAttr("disabled");
         $("select option[value='continue']").remove();
+        $("img").attr("src", croom["default"])
     }
     if(scene.location !== undefined) {
       enterRoom(scene.location);
