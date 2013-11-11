@@ -2,9 +2,6 @@ $("#okay").click(function () {
     var command = $("select").val();
     if (scenes.length > 0) {
         playScene();
-    } else if ($.inArray(command, ["north", "east", "south", "west"]) > -1) {
-        console.log("yo");
-        enterRoom(croom[command]);
     } else {
         startScene(croom[command]);
     }
@@ -57,6 +54,9 @@ playScene = function () {
     if (window.scenes.length == 0) {
         $("select").removeAttr("disabled");
         $("select option[value='continue']").remove();
+    }
+    if(scene.location !== undefined) {
+      enterRoom(scene.location);
     }
 };
 

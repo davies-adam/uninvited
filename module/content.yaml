@@ -7,6 +7,7 @@ hallway:
           caption: Living Area
           subcaption: An Old House
           content: "With unceasable vehemence another series of knocks seems to be beckoning you. It appears as if the noises are coming from above, just a step in front of you."
+          audio: knock.mp3
     else:
       - header: hallway
         image: hallway.jpg
@@ -16,8 +17,12 @@ hallway:
   knife:
     - header: A Kitchen Knife
       content: A sharp kitchen knife that should be capable of fending off attackers
-  east: study
-  south: center
+  east: 
+    - location: study
+  south: 
+    - location: center
+  north:
+    - location: attic_entrance
 study:
   initial:
     - header: "What...?"
@@ -50,7 +55,8 @@ study:
     - content: Spooky stuff..." you think by yourself.
     - content: At the moment you look up you suddenly get a strange sensation...
       audio: swell_eerie.mp3
-  west: hallway
+  west: 
+    - location: hallway
 center:
   initial:
     if:
@@ -59,10 +65,9 @@ center:
           image: center.jpg
           caption: Living Area
           subcaption: An Old House
-          content: The hallway continues north and south, doors lead to the east and west as well. Both doors are open.
-        - content: "Even in the dim light you can spot something unusual at the floor below <b>Stains</b> are all over the place"
-        - content: As you go north your heartbeat stops again when you hear rhythmic knocks coming from somewhere further down the hallway.
+          content: As you go north your heartbeat stops again when you hear rhythmic knocks coming from somewhere further down the hallway.
           audio: knock.mp3
+        - content: "Even in the dim light you can spot something unusual at the floor below <b>Stains</b> are all over the place"  
     else:
       - header: Hallway
         image: center.jpg
@@ -74,9 +79,12 @@ center:
     - header: Stains
       image: center.jpg
       content: You bend down to investigate the stains further... It is some kind of liquid. Wait... it's... actually blood! The blood stains are smeared all over the place and seem to lead to the west.
-  north: hallway
-  east: library
-  south: dining_room
+  north: 
+    - location: hallway
+  east: 
+    - location: library
+  south:
+    - location: dining_room
 library:
   initial:
     - header: Library
@@ -108,7 +116,8 @@ library:
         Bring me here, nearer 
         Nearer to Zandiria</i> 
     - content: Alas, somehow you fail to remember the melody
-  west: center
+  west: 
+    - location: center
 dining_room:
   initial:
     if:
@@ -124,19 +133,27 @@ dining_room:
   supper:
     - header: Examine Supper
       content: Boarsteak with Sweetsauce... Doesn't look too bad actually. You wonder why you haven't finished it
-  south: fireplace
+  north: 
+    - location: center
+  south: 
+    - location: fireplace    
+  west: 
+    - location: alcove
 fireplace:
   initial:
     - header: Cozy Room
       content: You're at the fireplace. The flames are eating noisily on the few logs and spread warmth throughout the house. A rare, pricy <b>picture</b> from Nybelmarian lands hangs above the fire.
-      image: fireplace.png
+      image: fireplace.jpg
     - content: For a moment you think that you've got a glimpse of someone moving in that cushioned <b>chair</b> next to the fire...
   chair:
     - content: Slowly, carefully you sneak behind the chair...
-    - content: There you have it: Little shadows are dancing below the piece of furniture - something obviously occupies the space between fire and chair...
+      image: fireplace.jpg
+      header: Sneaking Forward
+    - content: "There you have it: Little shadows are dancing below the piece of furniture - something obviously occupies the space between fire and chair..."
     - content: You raise your hand to catch the person unaware...
     - content: You jump at the chair. With a loud crash the poker rack that sits next to it goes down.
       audio: metal_drop.mp3
+    - content: Aside from that there's nothing there. So much about the stranger that sits in front of the fire, just waiting to get caught
   picture:
     - header: Painting
       content: The picture shows the image of a bone tree, said to be an apparition of the Venlaken Enclave.
@@ -144,3 +161,396 @@ fireplace:
       audio: horror_effect1.mp3
     - content: These trees usually appear suddenly over night and disappear just as sudden after some time. Their most common form is that of a tree made entirely out of human bones. Creepy....  
       audio: campfire.mp3
+  north: 
+    - location: dining_room
+alcove:
+  initial:
+    if: 
+      fairy_found:
+        - header: Alcove
+          content: You breathe deeply. You feel exhausted and weak as if you could lose consciousness every moment.
+          music: whispers.mp3
+          image: alcove.jpg
+    else:
+      - header: Alcove
+        image: alcove.jpg
+        content: This little alcove harbours a large storage <b>chest</b>, used to store all kinds of things. It is currently open.
+      - content: To the south you see the stairs to the basement.
+  chest:
+    - header: Look in Chest
+      content: You look into the chest and notice that someone must have recently rummaged through it. Everything lies upside down, papers are torn. There are no valuables here - or not anymore
+    - content: "Could it be that a thief has indeed made it in here? And if so: Where is he hiding now?"
+    - content: Wait... Is there... A sound makes you turn around, facing south.
+  south: 
+    - location: basement_entrance  
+basement_entrance:
+  initial:
+    if:
+      fairy_found:
+        - header: Basement Entrance
+          caption: Living Area
+          image: basement_entrance.jpg
+          content: Your head is getting dizzy being attacked by all these whispers, which seems to talk about everything and nothing at the same time. Your urge to trap a mouse is long gone, you feel persued and threatened by a force you cannot control.
+    else:
+      - header: Basement Entrance
+        caption: Living Area
+        image: basement_entrance.jpg
+        content: You're at the top of the stairs to the basement. A single candle lights the path down to the lower level of the building. You feel uneasy when you look down there.
+      - content: And then there's that strange <b>sound</b> of a draft that seems to be coming from below...
+  sound:
+    if:
+      fairy_found:
+        - header: Sound
+          content: Irritating haunting whispers, repeating its unintelligible message over and over again...
+    else:
+      - header: Sound
+        content: It sounds almost... desolate... As if someone's crying? Or it might just be the wind playing tricks on you. Or is it?
+  north: 
+    - location: alcove
+  down: 
+    - location: basement
+basement:
+  initial:
+    if:
+      fairy_found:
+        - audio: whispers.mp3
+          caption: Basement
+          image: basement.jpg
+          header: Stairs to the Living Area
+          content: As the eerie whispers intensify, the candle on the bottom of the stairs flickers vehemently. You sense a strong presence, something you've never ever before felt in your life, and that cannot be put into words.
+    else:
+      - caption: Basement
+        image: basement.jpg
+        header: Stairs to the Living Area
+        content: You are at the bottom of a staircase leading up to the living area. The cellar continues to the west.
+      - content: There is no other exit down here. If someone's in the cellar he cannot escape...
+  west: 
+    - location: logs
+  up: 
+    - location: basement_entrance
+logs:
+  initial:
+    if:
+      fairy_found:
+        - audio: whispers.mp3
+          header: Log Storage
+          image: logs.jpg
+          content: A shiver runs down your spine as you are confronted with whispers emerging from all corners of the room. They are unintelligible, yet even more so they make your hair stand on end...
+        - content: What is going on here?
+    else:
+      - header: Log Storage
+        content: Some <b>logs</b> are stored on the south wall, making sure that there's enough firewood for warmth and coziness once the weather gets chilly.
+        image: logs.jpg
+      - content: You cannot shake a discomforting feeling however when you think about sitting at the fireplace while you're actually in a damp cellar, persuing an intruder.
+  logs:
+    - header: Examine Logs
+      content: Nobody can hide behind these logs. You check, and indeed, nothing to worry here.
+  east: 
+    - location: basement
+  north: 
+    - location: wine
+wine:
+  initial:
+    if:
+      bottle_broken:
+        - header: Wine Racks
+          image: wine.jpg
+          content: You're at the wine <b>racks</b>. Some good vintage <b>wine</b> can be found in this place as you can see judging from the layer of dust that covers most bottles.
+        - content: Shards of a broken <b>bottle</b> litter the floor.
+    else:
+      - header: Wine Racks
+        image: wine.jpg
+        content: You take another step further into the cellar, listening intently to any vague sound that might reach your ears. But everything is quiet now, dead quiet.
+      - content: You've reached the <b>wine</b> <b>racks</b>. Everything seems untouched, a layer of dust covers most bottles. 
+  racks:
+    - header: Look Behind Wine Racks
+      content: You search the racks, hoping or fearing to finally get face to face with the wrongdoer. Nothing there.
+  bottle:
+    if:
+      wine_broken:
+        - header: A Broken Bottle
+          content: It's broken. Glass lies all over the floor now, the wine spreads into all corners of the room.
+    else:
+      - header: Wine
+        content: You'd fancy a mouthful of the Winter Ice now, but there are more urgent matters at hand.
+  east:
+    - header: Creeping East
+      audio: glass_smash.mp3
+      content: You freeze as you hear a sudden loud noise...
+      set: wine_broken
+    - content: It takes a few moments before you realize that it was you. So there goes the bottle of winter ice along with your attempt to get the thief off guard.
+    - location: crates
+crates:    
+  initial:
+    - header: Storage Area
+      content: Peeking into the next part of the cellar first you slowly push yourself forward, waiting for something to happen... But everthing stays calm except for the sound of some water dripping from the ceiling.
+      audio: dripping.mp3
+      image: storage.jpg
+    - content: You've reached a storage area. <b>Crates</b> and <b>barrels</b> are all over the place here and there's a tiny <b>window</b> on the east side of the room through which you can hear miffled <b>voices</b>.
+  crates:
+    - header: Look into Crates
+      content: Heavy crates that could offer enough room for someone to hide. But there's no-one hiding in the shadows here.
+  barrels:
+    - header: Search Barrels
+      content: Cautiously you glide around, expecting your opponent to make a move every moment. You hope that you are prepared for the encounter.
+    - content: However, there's nothing behind these barrels.
+  window:
+    - header: Look through Window
+      content: A tiny window through which you can get just a glance at the street outside. Not enough to make anything out at this hour, though.
+  voices:
+    if:
+      voices_heard:
+        - header: Listen to Voices
+          content: You don't hear anything anymore.
+    else:
+      - header: Listen to Voices
+        content: You press your ear against the window - someone seems to be talking excitedly out there.
+      - content: "You have difficulties to understand, but as you listen closely you get some fragments of a conversation: \"If I tell you, captain!\" You notice a man's voice, trembling. \"It cannot be undone now,\" he's whining. He says more, but the rest is unintelligible."
+      - content: "\"Be it as it is, it's been taken care of then, you say?\" a booming voice asks back."
+      - content: "\"Oh yes, oh yes, I fear it has been! What will happen now... I can't, I can't...\""
+      - content: "The other voice answers reassuringly. \"Well, scum to scum, right?\""
+      - content: Silence.
+      - content: They might be talking about the hanged one perhaps, you think to yourself. For a moment you consider shouting to them to get help, but you realize that the thief would hear you. And then you already hear their footsteps disappear.
+      - content: "\"First things first...\" is the last word you understand."
+        audio: footsteps_leaving.mp3
+        set: voices_heard
+  north:
+    - location: empty_storage
+  west:
+    - location: wine
+empty_storage:
+  initial:
+    if:
+      fairy_found:
+        - header: Storage Area
+          image: storage.jpg
+          content: What... is that? A heavy wind strikes you out of nowhere, so that you nearly tumble. But in an instant it is gone again...
+          audio: wind_gust.mp3
+    else:
+      - header: Storage Area
+        image: storage.jpg
+        content: The storage area continues here. Everything is quiet now.
+  north:
+   - location: shadow
+  south:
+    - location: crates
+shadow:
+  initial:
+    if:
+      cellar_shadow:
+        - header: Storage Area
+          image: shadow.jpg
+          content: You are in another storage room full of crates. A feeling of uneasiness and dread engulfs you, as if something dark and sinister is ready to grip you.
+        - content: You feel eternally lost and helpless, your sensations being stiffled by the force of a murky sea of fear surrounding you.
+    else:
+      - header: Storage Area
+        image: shadow.jpg
+        content: <b>The candle...</b> ...just fades out, swallowed by darkness, and then everything returns to normal... And then again, once more! What was it you just saw there?
+      - content: You are in another storage room full of crates. A feeling of uneasiness and dread engulfs you, as if something dark and sinister is ready to grip you.
+      - content: You feel eternally lost and helpless, your sensations being stiffled by the force of a murky sea of fear surrounding you.
+  crates:
+    - header: Search Crates
+      content: There are more crates here, each one of them could harbour deadly danger. You search one after the other, systematically. Nothing.
+  south:
+    location: empty_storage      
+  west:
+    - header: Creeping West
+      audio: rustle.mp3
+      content: Ha... A rustling... Clear as day... - Now where is that thief?
+    - content: Unwavering you enter the last remaining room of the basement.
+      location: last_basement
+last_basement:
+  initial:
+    if:
+      fairy_found:
+        - header: Storage Area
+          image: last_basement.jpg
+          content: You're at a dead end of the storage area. A single large <b>crate</b> was placed in the middle of the room, next to it rests an unused, broken <b>cage</b>.
+    else:
+      - header: Storage Area
+        image: last_basement.jpg
+        content: You're at a dead end of the storage area. A single large <b>crate</b> was placed in the middle of the room, next to it rests an unused, broken <b>cage</b>.
+      - content: There's no doubt about it anymore... That crate is the very last spot your sneaky, yet still unseen opponent can possibly hide...
+  crate:
+    if:
+      fairy_found:
+        - header: Look in Crate
+          content: The fairy mouse that hid here is gone - it has disappeared into a tiny, tiny hole at the corner of the room. You won't get that one out right now.
+    else:
+      - header: Look into Crate
+        content: You take all your courage and approach the crate valiantly...
+      - content: There... Another rustling noise... Now come out and show yourself! Come out and face the consequences of your misdeeds!
+        audio: rustle.mp3
+      - content: And then... from behind the shadows emerges...
+        audio: trembling.mp3
+        image: fairy_mouse.jpg
+      - content: A... whaaaaat?
+        image: fairy_mouse1.jpg
+      - content: That mischievous little fellow which looks like a ball of fur should be the reason for all the strange things happening here? While you're still thinking, the fairy mouse makes a disappearance in a small hole in the wall, leaving you alone with your thoughts.
+        image: fairy_mouse2.jpg
+      - content: You make sure that there's nobody there aside from that mouse. Indeed, there's no-one behind these crates.
+      - content: Could it really be that your uninvited visitor caused all the mess you've seen? The noises, the items littering the floor? Maybe you've just got a too vivid imagination and want to see a thief everywhere?  
+      - content: Still pondering you finally decide to perhaps search for some bait upstairs to hunt your new friend down...
+        set: fairy_found
+  east:
+    - location: shadow
+attic_entrance:
+  initial:
+    if:
+      fairy_found:
+        - header: Entrance to the Attic
+          audio: knocks.mp3
+          image: attic_entrance.jpg
+          content: BOOM... BOOM... BOOM... Loud and clear, persistent and alarming the knocks seem to be addressed directly to you, as if reacting to your every step. You have the weird feeling that you cannot escape them, that they draw you to them.
+        - content: Hesitating you stare up at the trapdoor leading to the attic. It seems to be vibrating due to an unseen force.  
+    else:
+      - header: Entrance to the Attic
+        image: attic_entrance.jpg
+        content: Three are stacked over each other in this dark corner, leading up to a hole in the ceiling. There's quite a mess at the bottom of the crates.
+      - content: The trapdoor on the ceiling is tightly shut.
+  trapdoor:
+    if:
+      fairy_found:
+        - header: Open Up Trapdoor
+          content: Just at the moment you want to reach out and open the trapdoor it slams open violently... The darkness of the attic greets you.
+          set: trapdoor_open
+    else:
+      - header: Open Up Trapdoor
+        content: Maybe later. The thief might be just around the corner. First have a look around in the rooms below.
+  south:
+    - location: hallway
+  up:
+    if:
+      trapdoor_open:
+        - header: Clim Up
+          image: trapdoor.jpg
+          content: You wait a while, but there's no further sign  of someone being actually up there. Cautiously you climb the crates, always with an eye on the opening...
+        - content: There you are...
+          image: attic1.jpg
+        - location: attic
+    else:
+      - header: Climb Up
+        content: The trapdoor to the attic is obviously shut.
+attic:
+  initial:
+    if:
+      hole_discovered:
+        - header: Attic Entrance
+          content: As you return to the trapdoor, you are shaken by a series of loud noises coming from below... You freeze instantly.
+          image: attic.jpg
+        - content: "Someone is fumbling at the front door... It seems as if the person actually has the right key, as already moments later you hear the lock snap open. How...!? You let your thought unfinished."
+          audio: door_open.mp3
+          image: down.jpg
+        - content: Yes, the front door is unlocked and someone enters in, now walking slowly through the house as if searching for something - or someone.
+          image: watch_empty.jpg
+        - content: Then there are more footsteps - another person enters the house. Holding your breath you hide in the shadows. Quietly you push yourself forward over the edge of the hole of the trapdoor, looking downwards to catch a glimpse of what is happening...
+        - content: "\"See?\" someone says. 
+        - content: \"Oh, all that blood...\" Then he seems to point somewhere: \"Look here: This is where that villain entered.\""
+        - content: \"Let me see,\" a booming voice answers and becomes louder. Someone's nearing...
+        - content: "There: A city guard appears just a few handspans below, inspecting the scene. Instinctively you move your head further back and cower in the shadows. You first need to sort your thoughts. Everything seems weird, you just cannot fathom what is transpiring here."
+          image: watch_walking.jpg
+        - content: The guard steps on a crate, looking up at the attic. You freeze and don't dare to breathe.
+          image: watch_look.jpg
+        - content: He asks a few questions to the second man, but you hardly listen, all tense that the man could enter the attic or at least spot you any moment and make use of his sword. But then... the second man calls him away.
+        - content: You hear another door being unlocked. You gather that it must be the one to the bedroom. You exhale with relief when you see the guard leaving. The two strange, uninvited visitors continue their discussion in the other room, yet you cannot understand a word from here.
+        - content: "After what seems like an eternity you hear two pairs of footsteps again, this time finally leaving the building.The last words you hear the guard say is: \"Fetch a drink then, friend, you've really gone through a lot today. Don't worry, I'll send the coroner over soon!\""
+          image: watch_empty.jpg
+        - content: \"Cornoner?\" You gasp - you are irritated, shocked and despaired.
+        - content: The front door closes, and you are alone again.
+        - content: "You're at the entrance to the attic, still flabbergasted by the appearance of the two people below. There seems to be only one way of finding out of what this is all about: To go down there and check the bedroom."
+    else:
+      - header: Attic Entrance
+        image: attic.jpg
+        content: You're in the attic area with the <b>trapdoor</b> that leads down to the main living area again. You look around but don't notice anyone around here. There's a tiny room to the south and a more spacious area to the north.
+  south:
+    - location: attic_south
+  north:
+    - location: attic_center
+attic_south:
+  initial:
+    - header: Attic Backroom
+      image: backroom.jpg
+      content: You're in a backroom of the attic, featuring an iron <b>bed</b>, a pitch black <b>corner</b> where no light seems to penetrate to it at all.
+    - content: And you hear these... <b>voices</b>... Everywhere these voices. This place must be haunted...  
+      audio: voices.mp3
+  bed:
+    - header: Look at Bed
+      content: An old, rusty bed with no matress. Some of the voices seem to have their source in it, but you're not sure. You cannot think a clear thought right now.
+  corner:
+    - header: Look into Corner
+      content: The corner is dark as the night, like an otherwordly maw, longing for your presence.
+      audio: whispers.mp3
+    - content: You move just a few steps closer and the voices suddenly change and intensify. It is as if the voices reverberate in your head, echoing again and again, each time the pain you feel increases a tad.
+      audio: voices1.mp3
+    - content: You don't know if you can stand the voices any longer and decide to take a step back.  
+  voices:
+     - header: Listen Voices
+       audio: voices.mp3
+       content: Are these the same voices that you heard in the cellar? Is it only one person? You think that you hear at least one woman whispering.
+  north:
+    - location: attic
+attic_center:
+  initial:
+    - header: Central Attic Room
+      content: This is a larger attic room, continuing north and south. A smaller room behind a beam is to the east. There's nothing unusual here
+      image: attic_center.jpg
+  south:
+    - location: attic
+  west:
+    - location: dummy
+  north:
+   - location: crystal
+crystal:
+  initial:
+    - header: Northern Attic Room
+      content: You are in the northernmost room of the attic, a round window was placed just below the gable. There's a bench next to the wall with a shard <b>crystal</b> that gives away some light. <b>Cobwebs</b> cover the corners of this room.
+      image: crystal.jpg
+  crystal:
+    - header: Look at Glowing Crystal
+      content: It's inexpensive stuff, but with a nice effect
+  cobwebs:
+    - header: Look at Cobwebs
+      content: Wait... didn't you just see something?
+      audio: swell_eerie.mp3
+    - content: Hmmm... Perhaps it was nothing.
+  south:
+    - location: attic_center
+  east: 
+    - location: nw_attic
+dummy:
+  initial:
+    - header: Aaaargh...?
+      content: You press yourself against the wall as you see a hanged person in your attic...
+      image: dummy.jpg
+    - content: No... Wait... As you move closer you notice that it's just a dummy hanging around, used to train swordplay!
+      image: dummy2.jpg
+    - content: For one moment you felt really frightened. Luckily another false alarm..
+  east:
+    - location: attic_center
+attic_nw:
+  initial:
+    - header: Northwestern Room
+      content: A <b>barrel</b>, a <b>sack</b> with old stuff, an unused be matress is all you can find in this corner of the attic. No obvious ghosts, thieves or monsters.
+      image: attic_nw.jpg
+  barrel:
+    - header: Look at Barrel
+      content: Firmly shut.
+  sacks:
+    - header: Look into Sacks
+      content: The sack contains some old toys.
+  west:
+    - location: crystal
+  south:
+    - location: last_attic
+last_attic:
+  initial:
+    - header: Oh No...
+      image: last_attic.jpg
+      content: Suddenly you stop and stare.
+    - content: There's a big hole in the roof on the east side of the building, leaving no doubt that it was the work of an intruder.
+    - content: He's here somewhere... Maybe somewhere really close by... Just waiting to finish you off...
+  outside:
+    - header: Look Outside
+      content: You take a look out of the hole and get a glance at the marketplace. The gallows are still conveying their message.
+      audio: bells.mp3
+      image: gallows.jpg
